@@ -1,0 +1,297 @@
+@import './colors.css';
+
+.user-profile-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.profile-header h2 {
+  color: var(--primary);
+  margin: 0;
+}
+
+.view-others-btn {
+  padding: 8px 16px;
+  background-color: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.view-others-btn:hover {
+  background-color: var(--accent);
+}
+
+.profile-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.profile-tabs .tab {
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  border-bottom: 2px solid transparent;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.profile-tabs .tab:hover {
+  color: var(--text);
+}
+
+.profile-tabs .tab.active {
+  border-bottom: 2px solid var(--secondary);
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.tab-content {
+  min-height: 200px;
+}
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.recipe-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border);
+  padding: 20px;
+  text-align: center;
+}
+
+.recipe-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.recipe-card h3 {
+  color: var(--text);
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.recipe-card p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 12px;
+  flex-grow: 1;
+}
+
+.recipe-icon {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.view-btn {
+  padding: 8px;
+  background-color: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.view-btn:hover {
+  background-color: var(--accent);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+  border: 1px solid var(--border);
+}
+
+.modal-content h2 {
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.modal-content p {
+  color: var(--text);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.close-btn {
+  padding: 8px 16px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+  background: var(--accent-dark);
+}
+
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* This centers children horizontally */
+  justify-content: center; /* Optional: centers vertically if needed */
+  gap: 8px;
+  position: relative;
+  margin: 0 auto; /* Ensures the avatar-section itself is centered */
+  text-align: center;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+}
+
+.change-avatar-btn {
+  font-size: 12px;
+  color: var(--accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.avatar-picker {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  position: absolute;
+  top: 100%;
+  z-index: 10;
+}
+
+.avatar-option {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: 0.2s;
+}
+
+.avatar-option:hover {
+  border-color: var(--accent);
+}
+
+.avatar-option.selected {
+  border-color: var(--accent-dark);
+}
+
+.visibility-toggle {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+.visibility-toggle input[type="checkbox"] {
+  display: none;
+}
+
+
+.visibility-toggle label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 12px;
+}
+
+
+.toggle-switch {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  background: #ccc;
+  border-radius: 50px;
+  transition: background 0.3s ease;
+}
+
+/* Toggle circle */
+.toggle-switch::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+/* Checked state */
+input[type="checkbox"]:checked + .toggle-switch {
+  background: #4caf50; /* green when active */
+}
+
+input[type="checkbox"]:checked + .toggle-switch::after {
+  transform: translateX(24px);
+}
+
+/* Label text */
+.visibility-toggle span {
+  font-size: 14px;
+  color: #333;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
